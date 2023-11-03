@@ -1,6 +1,6 @@
 # AWS-F1-Instance
 
-Open the uploaded pdf file for step by step guide to run a toy example in verilog on Amazon's F1 instance.
+Open the uploaded pdf file for step by step guide to run a toy example written in `Verilog`, synthesized with `Vivado Design Suite` and run the generated bitstream on `Amazon's F1` instance.
 
 Useful links to tryout experiment. 
 
