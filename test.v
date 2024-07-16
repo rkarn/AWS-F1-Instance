@@ -1,90 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 30.12.2022 11:25:34
-// Design Name: 
-// Module Name: NN_tb
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
-module NN_tb;
-    
-    logic signed [7:0] test_data_b [0:783] = '{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 116, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 90, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 63, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 76, 105, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 110, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 127, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 111, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 91, 127, 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 23, 122, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 99, 127, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 60, 127, 81, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 11, 115, 127, 14, 0, 0, 0, 0, 0, 0, 0, 0, 0, 79, 127, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 81, 127, 108, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 79, 127, 33, 0, 0, 0, 0, 0, 0, 0, 0, 0, 7, 43, 89, 124, 127, 45, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 79, 127, 42, 0, 0, 0, 23, 24, 58, 72, 75, 120, 121, 117, 89, 120, 126, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 75, 126, 118, 103, 103, 103, 126, 127, 125, 120, 99, 71, 45, 14, 2, 116, 125, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 88, 88, 88, 88, 88, 49, 28, 0, 0, 0, 0, 0, 51, 127, 110, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 84, 127, 68, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 84, 127, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 84, 127, 28, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 84, 127, 47, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 84, 127, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 84, 127, 76, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 84, 127, 76, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 48, 127, 76, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-    logic signed [7:0] test_data_a [0:783] = '{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 4, 40, 103, 127, 127, 127, 127, 48, 40, 40, 22, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 79, 79, 79, 84, 126, 126, 126, 126, 126, 126, 126, 126, 126, 105, 19, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 113, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 120, 73, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 69, 126, 126, 126, 119, 56, 107, 126, 126, 126, 126, 126, 126, 126, 126, 126, 105, 21, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 17, 17, 17, 15, 0, 15, 74, 17, 102, 117, 126, 126, 126, 126, 126, 118, 32, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 45, 0, 0, 0, 0, 0, 0, 0, 0, 17, 99, 126, 126, 126, 126, 122, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 16, 101, 101, 108, 126, 126, 126, 126, 120, 44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 83, 126, 126, 126, 126, 126, 126, 126, 119, 41, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 13, 126, 126, 126, 126, 126, 126, 126, 126, 48, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 100, 126, 126, 126, 126, 126, 126, 126, 115, 24, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 43, 43, 43, 124, 126, 126, 126, 126, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 76, 126, 126, 126, 125, 29, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 119, 126, 126, 126, 30, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 16, 116, 126, 126, 75, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18, 101, 126, 126, 126, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 33, 105, 105, 105, 29, 18, 18, 10, 13, 18, 75, 111, 126, 126, 126, 126, 69, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 126, 126, 126, 126, 126, 126, 97, 107, 126, 126, 126, 126, 126, 126, 78, 38, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 40, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 126, 118, 117, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 24, 78, 123, 126, 126, 126, 126, 126, 126, 126, 126, 79, 78, 8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 58, 126, 126, 126, 126, 126, 63, 39, 39, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-    
-localparam period = 20;
-
-reg clk, enable, reset;  
-reg signed [7:0] img [0:783];
-reg [7:0] digit_out;
-reg NN_done;
-
-    neural_network NN(.clk(clk), .enable(enable), .reset(reset)
-                  .img(img), .digit_out(digit_out), .NN_done(NN_done));
-
-initial begin
-clk = 0;
-enable = 0;
-reset = 0;
-img = test_data_a;
-#145
-enable = 1;
-end
-
-always begin
-#10 clk = ~clk;
-end
-
-endmodule
-
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 26.12.2022 22:18:50
-// Design Name: 
-// Module Name: avg_pooling
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
-/**********
-* Average pooling implementation
-*
-* Inputs: clk => clock signal, pool_en => enable signal, 
-*         in1 => top left pixel value, 
-*         in2 => top right pixel value,
-*         in3 => bottom left pixel value,
-*         in4 => bottom right pixel value,
-*
-* Outputs: out => in pixels average
-*          pool_done => done signal
-* 
-***********/
 
 module avg_pooling(
     input clk,
@@ -111,42 +25,7 @@ module avg_pooling(
 
 endmodule
 
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 02.01.2023 23:47:02
-// Design Name: 
-// Module Name: dense_layer
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
-/**********
-* Dense layer implementation
-*
-* Parameters: NEURON_NB => The # of neurons
-*             IN_SIZE => The input vector size
-*             WIDTH => The width of the weights and biases
-*
-* Inputs: clk => clock signal, layer_en => enable signal, 
-*         reset => active high sync reset signal, in_data => in vector, 
-*         weights => neurons weights, biases => neurons biases
-*
-* Outputs: neuron_out => dense layer output
-*          layer_done => done signal
-* 
-***********/
 
 module dense_layer # (parameter NEURON_NB=32, IN_SIZE=196, WIDTH=8)(
     input clk,
@@ -175,38 +54,6 @@ module dense_layer # (parameter NEURON_NB=32, IN_SIZE=196, WIDTH=8)(
 
     
 endmodule
-
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 31.12.2022 09:16:01
-// Design Name: 
-// Module Name: dense_layer1
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-/**********
-* 1st dense layer implementation (hidden layer)
-*
-* Inputs: clk => clock signal, enable => enable signal, 
-*         reset => active high sync reset, pooled_img => in vector, 
-*
-* Outputs: layer_out => dense layer output
-*          layer_done => done signal
-* 
-***********/
 
 
 module dense_layer1(
@@ -274,37 +121,7 @@ module dense_layer1(
 
 endmodule
 
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 31.12.2022 09:16:01
-// Design Name: 
-// Module Name: dense_layer2
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
-/**********
-* 1st dense layer implementation (output layer)
-*
-* Inputs: clk => clock signal, enable => enable signal, 
-*         reset => active high sync reset, in_data => in vector, 
-*
-* Outputs: layer_out => dense layer output
-*          layer_done => done signal
-* 
-***********/
 
 module dense_layer2(
     input clk,
@@ -348,37 +165,6 @@ module dense_layer2(
     assign layer_done = dense2_done;
 
 endmodule
-
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 29.12.2022 10:34:30
-// Design Name: 
-// Module Name: neural_network
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-/**********
-* Neural Network implementation
-*
-* Inputs: clk => clock signal, enable => NN enable signal, img => in vector, 
-*
-* Outputs: digit out => handwritten digit
-*          NN_done => done signal
-* 
-***********/
 
 module neural_network(
     input clk,
@@ -532,43 +318,6 @@ module neural_network(
     
 endmodule
 
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 28.12.2022 23:18:14
-// Design Name: 
-// Module Name: neuron
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
-/**********
-* Single neuron implementation
-*
-* Parameters: IN_SIZE => The input vector size
-*             WIDTH => The width of the weights and biases
-*
-* Inputs: clk => clock signal, en => enable signal,
-*         in_data => in vector, reset => active high sync reset
-*         weights => neuron weights, bias => neuron bias
-*
-* Outputs: neuron_out => neuron value after activation
-*          neuron_done => done signal
-* 
-***********/
-
 
 module neuron #(parameter IN_SIZE=196, WIDTH = 8)(
     input clk,
@@ -612,39 +361,6 @@ module neuron #(parameter IN_SIZE=196, WIDTH = 8)(
     
 endmodule
 
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 01.01.2023 15:38:43
-// Design Name: 
-// Module Name: relu
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
-/**********
-* Relu activation function implementation
-*
-* Parameters: WIDTH => The width used in the NN
-*
-* Inputs: data_in => in element, 
-*
-* Outputs: data_out => relu output (ie data_in if >0, else 0)
-* 
-***********/
-
 
 module relu #(parameter WIDTH = 8)(
     input signed [4*WIDTH-1:0] data_in,
@@ -657,38 +373,6 @@ module relu #(parameter WIDTH = 8)(
     assign data_out = temp >> 8; //Rescale element and store into data_out
     
 endmodule
-
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 02.01.2023 22:59:45
-// Design Name: 
-// Module Name: select_max
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-/**********
-* Module to select the maximum between last layer outputs
-*
-* Inputs: clk => clock signal, enable => enable signal,
-*         reset => active high sync reset, in_data => input array, 
-*
-* Outputs: digit => Index of max element (ie handwritten digit)
-*          layer_done => done signal
-* 
-***********/
 
 module select_max # (parameter NEURON_NB=10, WIDTH=8)(
     input clk,
